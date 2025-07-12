@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CLiFT: Compressive Light-Field Tokens for Compute Efficient and Adaptive Neural Rendering">
+  <meta name="keywords" content="CLiFT: Compressive Light-Field Tokens for Compute Efficient and Adaptive Neural Rendering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CLiFT</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="./static/css/bootstrap-4.4.1.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  
+  
+  
+  
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/72.png">
+
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/app.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+  <link rel="stylesheet" href="./static/css/dics.original.css">
+  <script src="./static/js/event_handler.js"></script>
+  <script src="./static/js/dics.original.js"></script>
+  <!-- <script> -->
+    <!-- function openDemo(demoName) { -->
+      <!-- window.location = 'https://niujinshuchong.github.io/mip-splatting-demo/' + demoName + '.html'; -->
+    <!-- } -->
+  <!-- </script> -->
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-2 publication-title" style="margin-bottom: 0"><strong>CLiFT: </strong> Compressive Light-Field Tokens for Compute Efficient and Adaptive Neural Rendering</h2>
+          <!-- <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0"></h2> -->
+          <br>
+          <br>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://eric-zqwang.github.io/">Zhengqing Wang</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://ivenwu.com/">Yuefan Wu</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://jcchen.me/">Jiacheng Chen</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://zhangfuyang.github.io/">Fuyang Zhang</a><sup>1</sup>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://yasu-furukawa.github.io/">Yasutaka Furukawa</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Simon Fraser University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Wayve</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+          
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/eric-zqwang/CLiFT.git"
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (released by 8/1)</span>
+                  </a>
+              </span>
+
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://niujinshuchong.github.io/mip-splatting-demo/"
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-dribbble"></i>
+                  </span>
+                  <span>Viewer</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+      
+          <div class="content has-text-centered">
+            <!-- <video width="100%" loop playsinline autoplay muted src="resources/demo.mp4"></video> -->
+            <video controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" class="demo-video" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="false" x5-video-orientation="portraint">
+              <source src="resources/demo.mp4" type="video/mp4">
+              <!-- <source src="static/video/demo.webm" type="video/webm"> -->
+              Your browser does not support the video tag.
+            </video>
+          </div>
+      
+          <h2 class="subtitle has-text-left" style="margin-top: 15px">
+            TL;DR: We represent scenes as a set of compressed light-field tokens (CLiFTs) and render novel views by selecting relevant CLiFTs based on a compute budget.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reconstructions</h2>
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+          <iframe style="clip-path: inset(1px 1px)" src="https://sketchfab.com/playlists/embed?collection=abee3cc1a7a7436c804f2bd3aadc2acd" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+-->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper proposes a neural rendering approach that represents a scene as "compressed light-field tokens (CLiFTs)", retaining rich appearance and geometric information of a scene. CLiFT enables compute-efficient rendering by compressed tokens, while being capable of changing the number of tokens to represent a scene or render a novel view with one trained network. Concretely, given a set of images, multi-view encoder tokenizes the images with the camera poses. Latent-space K-means selects a reduced set of rays as cluster centroids using the tokens. The multi-view "condenser" compresses the information of all the tokens into the centroid tokens to construct CLiFTs. At test time, given a target view and a compute budget (i.e., the number of CLiFTs), the system collects the specified number of nearby tokens and synthesizes a novel view using a compute-adaptive renderer. Extensive experiments on RealEstate10K and DL3DV datasets quantitatively and qualitatively validate our approach, achieving significant data reduction with comparable rendering quality and the highest overall rendering score, while providing trade-offs of data size, rendering quality, and rendering speed.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method Overview</h2>
+
+        <figure style="width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; display: block;">
+          <div class="content has-text-centered">
+            <video controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" class="demo-video" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="false" x5-video-orientation="portraint">
+              <source src="resources/intro.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+          </div>
+                      <figcaption style="text-align: left; margin: 15px 0 0 0; padding: 12px 20px; font-style: normal; color: #333; font-size: 1.0em; background: #f8f9fa; border-left: 4px solid #007bff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-family: 'Google Sans', sans-serif; line-height: 1.5; border-radius: 0 4px 4px 0;">
+              A step-by-step visualization of CLiFT's training and inference process, demonstrating how multi-view images are tokenized, clustered, and compressed into CLiFTs, followed by the adaptive rendering process that selects relevant CLiFTs based on the target viewpoint and compute budget.
+            </figcaption>
+        </figure>
+
+        <div style="margin-top: 60px; margin-bottom: 40px;">
+          <div class="content has-text-centered">
+            <img src="resources/method.png" alt="Method Overview" style="width: 100%; max-width: 800px;">
+          </div>
+
+          <figure style="width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; display: block;">
+                          <figcaption style="text-align: left; margin: 15px 0 0 0; padding: 12px 20px; font-style: normal; color: #333; font-size: 1.0em; background: #f8f9fa; border-left: 4px solid #007bff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-family: 'Google Sans', sans-serif; line-height: 1.5; border-radius: 0 4px 4px 0;">
+                <strong>CLiFT Pipeline Overview.</strong> <em>Training (top):</em> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <em>Latent K-means</em> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <em>Inference (bottom):</em> For novel view synthesis, relevant CLiFTs are collected based on the target viewpoint and compute budget, then rendered through the adaptive renderer.
+              </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+    
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/D389imzYO04?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+        <h3 class="title is-4 has-text-centered" style="margin-top: 40px;">Comparison wtih LVSM on RealEstate10K</h3>
+        <!-- <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div> -->
+        
+        <div class="content has-text-centered">
+          <video width="100%" loop playsinline autoplay muted src="resources/LVSM_comparison.mp4"></video>
+        </div>
+
+
+        <h3 class="title is-4 has-text-centered" style="margin-top: 40px;">Comparison wtih DepthSplat on DL3DV</h3>
+        <!-- <div class="content has-text-justified">
+          <p>
+          </p>
+        </div> -->
+        
+        <div class="content has-text-centered">
+          <video width="100%" loop playsinline autoplay muted src="resources/DepthSplat_comparison.mp4"></video>
+        </div>
+        
+
+        <!-- <h3 class="title is-4">Comparison wtih DepthSplat</h3>
+        <div class="content has-text-justified">
+          <p>
+            Here we show more comparisons with DepthSplat based on different compression ratios.
+          </p>
+        </div> -->
+        
+        <!-- 
+        <div class="content has-text-centered">
+          <video class="video" width="100%" id="xyalias2" loop playsinline autoplay muted src="resources/materials_3dgs_ewa_vs_ours.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias2Merge"></canvas>
+        </div>
+        -->
+
+        <!-- <div class="content has-text-centered">
+          <video class="video" width="100%" id="xyalias9" loop playsinline autoplay muted src="resources/bonsai_3dgs_ewa_vs_ours.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias9Merge"></canvas>
+        </div> -->
+
+        <h3 class="title is-4 has-text-centered" style="margin-top: 60px;">Detailed Comparison</h3>
+        <div class="content has-text-justified">
+          <p>
+            Some detailed frame-level comparisons between DepthSplat and CLiFT with different compression ratios.
+          </p>
+        </div>
+
+        <div class="container">
+          <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+              <li class="nav-item">
+                <a class="nav-link" onclick="dl3dvSceneEvent(0)">example 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="dl3dvSceneEvent(1)">example 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="dl3dvSceneEvent(2)">example 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="dl3dvSceneEvent(3)">example 4</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="dl3dvSceneEvent(4)">example 5</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" onclick="dl3dvSceneEvent(5)">example 6</a>
+              </li>
+          </ul>
+          <div class="b-dics" style="width: 1000px; font-weight: 600;">
+              <img src="resources/360_stmt_clift/0a1b7c20a9_depthsplat.png" alt="DepthSplat (41 MB)">
+              <img src="resources/360_stmt_clift/0a1b7c20a9_CLiFT25.png" alt="CLiFT (8 MB)">
+              <img src="resources/360_stmt_clift/0a1b7c20a9_CLiFT50.png" alt="CLiFT (16 MB)">
+              <img src="resources/360_stmt_clift/0a1b7c20a9_CLiFT100.png" alt="CLiFT (33 MB)">
+              <img src="resources/360_stmt_clift/0a1b7c20a9_GT.png" alt="GT">
+          </div>
+        </div>
+
+        <h3 class="title is-4 has-text-centered" style="margin-top: 60px;">More Qualitative Results on RealEstate10K</h3>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video width="100%" loop playsinline autoplay muted src="resources/RE10K_compressed_v2.mp4"></video>
+        </div>
+
+        <h3 class="title is-4 has-text-centered" style="margin-top: 60px;">More Qualitative Results on DL3DV</h3>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        
+        <div class="content has-text-centered">
+          <video width="100%" loop playsinline autoplay muted src="resources/DL3DV_compressed_v2.mp4"></video>
+        </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{Wang2025CLiFT,
+  author    = {Wang, Zhengqing and Wu, Yuefan and Chen, Jiacheng and Zhang, Fuyang and Furukawa, Yasutaka},
+  title     = {CLiFT: Compressive Light-Field Tokens for Compute Efficient and Adaptive Neural Rendering},
+  journal   = {},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+<section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    We thank Haian Jin for helpful discussions on reproducing LVSM and training on the DL3DV dataset. This research is partially supported by NSERC Discovery Grants, NSERC Alliance Grants, and John R. Evans Leaders Fund (JELF). We thank the Digital Research Alliance of Canada and BC DRI Group for providing computational resources.
+  </div>
+</section>
+
+<section class="section" id="References">
+  <div class="container is-max-desktop content">
+        <h2 class="title">References</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              <a href="https://haian-jin.github.io/projects/LVSM/" target="_blank">LVSM: A Large View Synthesis Model with Minimal 3D Inductive Bias</a>
+            </li>
+            <li>
+              <a href="https://haofeixu.github.io/depthsplat/" target="_blank">DepthSplat: Connecting Gaussian Splatting and Depth</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is adapted from <a href="https://niujinshuchong.github.io/mip-splatting/">Mip-Splatting</a>, which is originally from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. 
+          </p>
+        </div>
+      </div>
+          <p></p>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>
