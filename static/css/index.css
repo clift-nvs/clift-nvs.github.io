@@ -360,3 +360,73 @@ li {
     padding: 2px 8px;
   }
 }
+
+/* WeChat browser video compatibility */
+video {
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  background: #000;
+}
+
+/* Force video display in WeChat */
+video::-webkit-media-controls-panel {
+  display: flex !important;
+  opacity: 1 !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Mobile responsive author names and links */
+@media screen and (max-width: 768px) {
+  .publication-authors {
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+  }
+  
+  .author-block {
+    margin-bottom: 4px;
+  }
+  
+  .publication-links .link-block {
+    margin: 3px 2px;
+  }
+  
+  .publication-links .button {
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.6rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .publication-authors {
+    font-size: 0.8rem !important;
+    line-height: 1.3;
+  }
+  
+  .author-block {
+    margin-bottom: 3px;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  
+  .publication-links .link-block {
+    margin: 2px 1px;
+    width: 100%;
+  }
+  
+  .publication-links .button {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.5rem !important;
+    width: 100%;
+  }
+  
+  .publication-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
