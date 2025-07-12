@@ -306,3 +306,57 @@ li {
   color: #1976d2;
   font-weight: 600;
 }
+
+/* Mobile responsive title */
+@media screen and (max-width: 768px) {
+  .publication-title {
+    font-size: 1.5rem !important;
+    line-height: 1.3;
+  }
+  
+  .publication-title img {
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 6px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .publication-title {
+    font-size: 1.2rem !important;
+    line-height: 1.25;
+  }
+  
+  .publication-title img {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 4px !important;
+  }
+}
+
+/* Mobile responsive TL;DR caption */
+@media screen and (max-width: 768px) {
+  .tldr-caption {
+    font-size: 1rem;
+    padding: 16px 20px;
+    margin: 15px 0;
+  }
+  
+  .tldr-caption::before {
+    font-size: 0.75em;
+    padding: 3px 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tldr-caption {
+    font-size: 0.9rem;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  
+  .tldr-caption::before {
+    font-size: 0.7em;
+    padding: 2px 8px;
+  }
+}
