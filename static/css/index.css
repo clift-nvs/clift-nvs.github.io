@@ -94,9 +94,7 @@ body {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
-
     overflow: hidden;
-    border-radius: 10px !important;
 }
 
 .publication-video iframe {
@@ -117,8 +115,6 @@ body {
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
   padding: 0;
   font-size: 0;
 }
@@ -361,71 +357,6 @@ li {
   }
 }
 
-/* WeChat browser video compatibility */
-video {
-  object-fit: contain;
-  max-width: 100%;
-  height: auto;
-  background: #000;
-}
-
-/* Force video display in WeChat */
-video::-webkit-media-controls-panel {
-  display: flex !important;
-  opacity: 1 !important;
-}
-
-video::-webkit-media-controls-play-button {
-  display: block !important;
-  opacity: 1 !important;
-}
-
-/* WeChat video interaction hints */
-video:not([controls]) {
-  cursor: pointer;
-  position: relative;
-}
-
-video:not([controls]):hover {
-  opacity: 0.9;
-}
-
-/* Add a subtle play hint for videos without controls */
-video:not([controls])::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  border-left: 20px solid rgba(255, 255, 255, 0.7);
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* Show play button when video is paused (WeChat fallback) */
-video:not([controls])::before {
-  opacity: 0.8;
-}
-
-/* Hide play hint when video is playing */
-video:not([controls])[style*="--playing: 1"]::before {
-  opacity: 0;
-}
-
-/* Additional WeChat video styling */
-video:not([controls]) {
-  transition: transform 0.2s ease;
-}
-
-video:not([controls]):active {
-  transform: scale(0.98);
-}
 
 /* Mobile responsive author names and links */
 @media screen and (max-width: 768px) {
