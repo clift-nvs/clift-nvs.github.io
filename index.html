@@ -375,5 +375,78 @@
       </div>
 </footer>
 
+<script>
+  // Mobile video compatibility fix for WeChat and other strict browsers
+  function initializeVideoCompatibility() {
+      const videos = document.querySelectorAll('video');
+      
+      videos.forEach(video => {
+          // Force video properties for mobile compatibility
+          video.setAttribute('playsinline', '');
+          video.setAttribute('webkit-playsinline', '');
+          video.setAttribute('x-webkit-airplay', 'allow');
+          video.setAttribute('x5-video-player-type', 'h5');
+          video.setAttribute('x5-video-player-fullscreen', 'false');
+          video.setAttribute('x5-video-orientation', 'portraint');
+          
+          // Multiple autoplay attempts for different browsers
+          const attemptPlay = () => {
+              if (video.paused) {
+                  const playPromise = video.play();
+                  if (playPromise !== undefined) {
+                      playPromise.catch(error => {
+                          console.log('Autoplay prevented, trying again...', error);
+                          // Try again after a short delay
+                          setTimeout(() => {
+                              if (video.paused) {
+                                  video.play().catch(() => {
+                                      // Final fallback: show controls for manual play
+                                      video.controls = true;
+                                  });
+                              }
+                          }, 500);
+                      });
+                  }
+              }
+          };
+          
+          // Multiple event listeners for different loading states
+          video.addEventListener('loadedmetadata', attemptPlay);
+          video.addEventListener('canplay', attemptPlay);
+          video.addEventListener('canplaythrough', attemptPlay);
+          
+          // Force load and play on touch/click (for strict mobile browsers)
+          const forcePlay = () => {
+              video.load();
+              attemptPlay();
+              document.removeEventListener('touchstart', forcePlay);
+              document.removeEventListener('click', forcePlay);
+          };
+          
+          document.addEventListener('touchstart', forcePlay, { once: true });
+          document.addEventListener('click', forcePlay, { once: true });
+          
+          // Intersection Observer for lazy loading/playing
+          if ('IntersectionObserver' in window) {
+              const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          entry.target.load();
+                          attemptPlay();
+                          observer.unobserve(entry.target);
+                      }
+                  });
+              }, { threshold: 0.1 });
+              
+              observer.observe(video);
+          }
+      });
+  }
+
+// Initialize video compatibility on page load
+document.addEventListener('DOMContentLoaded', initializeVideoCompatibility);
+window.addEventListener('load', initializeVideoCompatibility);
+</script>
+
 </body>
 </html>
