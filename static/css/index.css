@@ -559,3 +559,22 @@ video {
   color: #66c6ff !important;
   text-decoration: underline;
 }
+
+/* Responsive navigation for example selectors */
+@media (max-width: 768px) {
+  .responsive-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    scrollbar-width: none; /* for Firefox */
+  }
+
+  .responsive-nav::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+
+  .responsive-nav .nav-item {
+    flex-shrink: 0;
+  }
+}
