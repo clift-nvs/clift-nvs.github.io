@@ -378,8 +378,13 @@
   // Mobile video compatibility fix for WeChat and other strict browsers
   function initializeVideoCompatibility() {
       const videos = document.querySelectorAll('video');
+      let hasUserInteracted = false;
       
       videos.forEach(video => {
+          // Track video state to prevent unnecessary play attempts
+          let hasAttemptedPlay = false;
+          let isPlayingSuccessfully = false;
+          
           // Force video properties for mobile compatibility
           video.setAttribute('playsinline', '');
           video.setAttribute('webkit-playsinline', '');
@@ -388,38 +393,65 @@
           video.setAttribute('x5-video-player-fullscreen', 'false');
           video.setAttribute('x5-video-orientation', 'portraint');
           
-          // Multiple autoplay attempts for different browsers
+          // Safe play attempt that won't restart playing videos
           const attemptPlay = () => {
-              if (video.paused) {
+              // Don't attempt play if already playing successfully
+              if (isPlayingSuccessfully || (!video.paused && !video.ended)) {
+                  return;
+              }
+              
+              if (video.paused && !hasAttemptedPlay) {
+                  hasAttemptedPlay = true;
                   const playPromise = video.play();
                   if (playPromise !== undefined) {
-                      playPromise.catch(error => {
+                      playPromise.then(() => {
+                          isPlayingSuccessfully = true;
+                          console.log('Video started playing successfully');
+                      }).catch(error => {
                           console.log('Autoplay prevented for video, will try on user interaction...', error);
-                          // Final fallback: show controls for manual play
-                          video.controls = true;
+                          hasAttemptedPlay = false; // Allow retry on user interaction
                       });
                   }
               }
           };
           
+          // Track when video actually starts playing
+          video.addEventListener('play', () => {
+              isPlayingSuccessfully = true;
+          });
+          
+          // Track when video stops playing
+          video.addEventListener('pause', () => {
+              isPlayingSuccessfully = false;
+          });
+          
+          video.addEventListener('ended', () => {
+              isPlayingSuccessfully = false;
+              hasAttemptedPlay = false; // Allow replay
+          });
+          
           // Multiple event listeners for different loading states
           video.addEventListener('loadedmetadata', attemptPlay);
           video.addEventListener('canplay', attemptPlay);
-          video.addEventListener('canplaythrough', attemptPlay);
           
-          // Add click handler directly to each video (not the entire document)
+          // Add click handler directly to each video
           const videoClickHandler = () => {
-              attemptPlay();
+              if (video.paused) {
+                  hasAttemptedPlay = false; // Reset to allow user-initiated play
+                  attemptPlay();
+              }
           };
           
           video.addEventListener('click', videoClickHandler);
           video.addEventListener('touchstart', videoClickHandler);
           
-          // Intersection Observer for lazy loading/playing
+          // Intersection Observer for lazy loading/playing (only once)
           if ('IntersectionObserver' in window) {
+              let hasObserved = false;
               const observer = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {
-                      if (entry.isIntersecting) {
+                      if (entry.isIntersecting && !hasObserved) {
+                          hasObserved = true;
                           attemptPlay();
                           observer.unobserve(entry.target);
                       }
@@ -429,6 +461,32 @@
               observer.observe(video);
           }
       });
+      
+      // Global user interaction handler for strict browsers (like WeChat)
+      const handleFirstUserInteraction = () => {
+          if (!hasUserInteracted) {
+              hasUserInteracted = true;
+              console.log('First user interaction detected, attempting to play paused videos...');
+              
+              // Only try to play videos that are actually paused
+              videos.forEach(video => {
+                  if (video.paused && !video.ended) {
+                      video.play().catch(error => {
+                          console.log('Video autoplay still prevented after user interaction, showing controls...', error);
+                          video.controls = true;
+                      });
+                  }
+              });
+              
+              // Remove the listeners after first interaction
+              document.removeEventListener('touchstart', handleFirstUserInteraction);
+              document.removeEventListener('click', handleFirstUserInteraction);
+          }
+      };
+      
+      // Add document-wide listeners for first user interaction (for strict browsers)
+      document.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
+      document.addEventListener('click', handleFirstUserInteraction, { once: true });
   }
 
 // Initialize video compatibility on page load
