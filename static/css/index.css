@@ -1,11 +1,86 @@
 body {
   font-family: 'Noto Sans', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.hero-body {
+  color: #ffffff;
+}
+
+.title {
+  color: #ffffff !important;
+}
+
+.publication-title {
+  color: #ffffff !important;
+}
+
+.publication-authors {
+  color: #ffffff;
+}
+
+.content {
+  color: #ffffff;
+}
+
+.content p {
+  color: #ffffff;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: #ffffff !important;
+}
+
+.has-text-justified {
+  color: #ffffff;
+}
+
+.method-caption {
+  color: #ffffff;
+  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  border-left: 3px solid #00aaff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  border: 1px solid #333333;
+}
+
+.tldr-caption {
+  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  border-left: 4px solid #00aaff;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+  background-color: #111111;
+  border: 1px solid #333333;
+  color: #ffffff;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #00aaff;
+  color: #000000;
+  font-weight: 500;
+}
+
+.footer {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.footer a {
+  color: #00aaff;
 }
 
 
 .footer .icon-link {
     font-size: 25px;
-    color: #000;
+    color: #ffffff;
 }
 
 .link-block a {
@@ -29,6 +104,7 @@ body {
 
 
 .publication-title {
+  color: #ffffff;
 }
 
 .publication-banner {
@@ -56,13 +132,13 @@ body {
 }
 
 .publication-venue {
-    color: #555;
+    color: #cccccc;
     width: fit-content;
     font-weight: bold;
 }
 
 .publication-awards {
-    color: #ff3860;
+    color: #ff4444;
     width: fit-content;
     font-weight: bolder;
 }
@@ -71,7 +147,7 @@ body {
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+   color: #00aaff !important;
 }
 
 .publication-authors a:hover {
@@ -125,7 +201,7 @@ body {
 
 
 .interpolation-panel {
-  background: #f5f5f5;
+  background: #111111;
   border-radius: 10px;
 }
 
@@ -162,34 +238,35 @@ li {
   overflow: hidden;
   text-align: center;
   width: 100%;
-  background-color: inherit;
+  background-color: #111111;
   float: left;
-  border: 1px solid #ddd;
+  border: 1px solid #333333;
   outline: none;
   cursor: pointer;
   transition: 0.0s;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  color: #ffffff;
 }
 
 /* Change background color of buttons on hover */
 .nav-item:hover {
-  background-color: #c7dc94;
+  background-color: #222222;
 }
 
 /* Create an active/current tablink class */
 .nav-tabs .nav-link.active {
-  background-color: #5c7f17;
-  color:white;
+  background-color: #00aaff;
+  color: #000000;
   font-weight: 500;
 }
 
 .nav a {
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
 }
 .nav a:hover {
-  color: #000;
+  color: #00aaff;
   font-weight: 500;
   text-decoration: none;
 }
@@ -222,10 +299,10 @@ li {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
-  color: #111111;
+  color: #ffffff;
   border-radius: 7px;
-  border: #bbbbbb 1px solid;
-  background-color: #f1f1f1;
+  border: #333333 1px solid;
+  background-color: #111111;
   width: 220px;
   margin-left: 8px;
   margin-right: 8px;
@@ -236,30 +313,30 @@ li {
   margin: 20px 0 0 0;
   padding: 18px 24px;
   font-style: normal;
-  color: #555;
+  color: #cccccc;
   font-size: 0.95em;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-left: 3px solid #007bff;
+  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  border-left: 3px solid #00aaff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
   font-family: 'Google Sans', sans-serif;
   line-height: 1.6;
   transition: all 0.3s ease;
-  border: 1px solid #e9ecef;
+  border: 1px solid #333333;
 }
 
 .method-caption:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
   transform: translateY(-1px);
 }
 
 .method-caption strong {
-  color: #007bff;
+  color: #00aaff;
   font-weight: 600;
 }
 
 .method-caption em {
-  color: #6c757d;
+  color: #cccccc;
   font-weight: 500;
 }
 
@@ -267,21 +344,21 @@ li {
   text-align: left;
   margin: 20px 0;
   padding: 20px 28px;
-  background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
-  border-left: 4px solid #2196f3;
+  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  border-left: 4px solid #00aaff;
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(33, 150, 243, 0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   font-family: 'Google Sans', sans-serif;
   font-size: 1.1em;
   line-height: 1.7;
-  color: #37474f;
+  color: #ffffff;
   position: relative;
   transition: all 0.3s ease;
 }
 
 .tldr-caption:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
 }
 
 .tldr-caption::before {
@@ -289,8 +366,8 @@ li {
   position: absolute;
   top: -8px;
   left: 20px;
-  background: #2196f3;
-  color: white;
+  background: #00aaff;
+  color: #000000;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 0.8em;
@@ -299,7 +376,7 @@ li {
 }
 
 .tldr-caption strong {
-  color: #1976d2;
+  color: #00aaff;
   font-weight: 600;
 }
 
@@ -407,4 +484,25 @@ li {
     flex-direction: column;
     gap: 4px;
   }
+}
+
+pre.bibtex-container {
+  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  border: 1px solid #333333;
+  border-left: 3px solid #00aaff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  padding: 20px;
+  color: #cccccc;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+pre.bibtex-container code {
+  font-family: 'Courier New', Courier, monospace;
+  background: none;
+  color: inherit;
+  font-size: 0.9em;
+  text-align: left;
 }
