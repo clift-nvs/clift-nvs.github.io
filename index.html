@@ -193,14 +193,13 @@
         </figure>
 
         <div style="margin-top: 60px; margin-bottom: 40px;">
-          <div class="content has-text-centered">
-            <img src="resources/method_dark.png" alt="Method Overview" style="width: 100%; max-width: 800px;">
-          </div>
-
-          <figure style="width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; display: block;">
-                          <figcaption class="method-caption">
-                <strong>CLiFT Pipeline Overview.</strong> <em>Training (top):</em> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <em>Latent K-means</em> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <em>Inference (bottom):</em> For novel view synthesis, relevant CLiFTs are collected based on the target viewpoint and compute budget, then rendered through the adaptive renderer.
-              </figcaption>
+          <figure class="media-container">
+            <figcaption class="method-caption">
+              We then illustrate the detailed method pipeline. <strong>Training (top):</strong> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <em>Latent K-means</em> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <strong>Inference (bottom):</strong> The multi-view input images are first encoded into CLiFTs by the same process as in training. Then, relevant CLiFTs are collected based on the target viewpoint and compute budget, which are passed to the adaptive renderer to produce the target view.
+            </figcaption>
+            <div class="content has-text-centered">
+              <img src="resources/method_dark.png" alt="Method Overview">
+            </div>
           </figure>
         </div>
 
