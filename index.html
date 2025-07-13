@@ -181,25 +181,25 @@
 
         <figure class="media-container">
           <div>
+            <figcaption class="method-caption">
+              We present a step-by-step visualization of CLiFT's <strong>test-time process</strong>, demonstrating how multi-view images are <strong>tokenized</strong>, <strong>clustered</strong>, and <strong>compressed</strong> into CLiFTs, followed by the adaptive rendering process that selects relevant CLiFTs based on the target viewpoint and compute budget.
+            </figcaption>
             <video controls autoplay muted loop playsinline webkit-playsinline preload="metadata" x5-video-player-type="h5" x5-video-orientation="portraint" x5-video-player-fullscreen="true">
               <source src="resources/dark_mode/intro_dark_compressed.mp4" type="video/mp4">
               <source src="resources/dark_mode/intro_dark_compressed.webm" type="video/webm">
               Your browser does not support the video tag.
            </video>
           </div>
-          <figcaption class="method-caption">
-            A step-by-step visualization of CLiFT's <strong>test-time process</strong>, demonstrating how multi-view images are <strong>tokenized</strong>, <strong>clustered</strong>, and <strong>compressed</strong> into CLiFTs, followed by the adaptive rendering process that selects relevant CLiFTs based on the target viewpoint and compute budget.
-          </figcaption>
         </figure>
 
         <div style="margin-top: 60px; margin-bottom: 40px;">
           <figure class="media-container">
+            <figcaption class="method-caption">
+              We then illustrate the overall pipeline of CLiFT's training and inference. <strong>Training (top):</strong> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <em>Latent K-means</em> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <strong>Inference (bottom):</strong> For novel view synthesis, relevant CLiFTs are collected based on the target viewpoint and compute budget, then rendered through the adaptive renderer.
+            </figcaption>
             <div class="content has-text-centered">
               <img src="resources/method.png" alt="Method Overview">
             </div>
-            <figcaption class="method-caption">
-              <strong>CLiFT Pipeline Overview.</strong> <em>Training (top):</em> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <em>Latent K-means</em> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <em>Inference (bottom):</em> For novel view synthesis, relevant CLiFTs are collected based on the target viewpoint and compute budget, then rendered through the adaptive renderer.
-            </figcaption>
           </figure>
         </div>
 

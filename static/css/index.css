@@ -316,7 +316,7 @@ li {
   margin: 20px 0 0 0;
   padding: 18px 24px;
   font-style: normal;
-  color: #cccccc;
+  color: #ffffff;
   font-size: 1.05em;
   background: #000000;
   border-radius: 8px;
@@ -336,7 +336,7 @@ li {
 }
 
 .method-caption em {
-  color: #cccccc;
+  color: #eeeeee;
   font-weight: 500;
 }
 
