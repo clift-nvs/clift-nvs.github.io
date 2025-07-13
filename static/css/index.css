@@ -509,3 +509,15 @@ pre.bibtex-container code {
   font-size: 0.9em;
   text-align: left;
 }
+
+/* References section links styling for better visibility on dark background */
+#References .content a {
+  color: #40b6f0 !important;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#References .content a:hover {
+  color: #66c6ff !important;
+  text-decoration: underline;
+}
