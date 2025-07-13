@@ -317,15 +317,12 @@ li {
   padding: 18px 24px;
   font-style: normal;
   color: #cccccc;
-  font-size: 0.95em;
-  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
-  border-left: 3px solid #00aaff;
+  font-size: 1.05em;
+  background: #000000;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
   font-family: 'Google Sans', sans-serif;
   line-height: 1.6;
   transition: all 0.3s ease;
-  border: 1px solid #333333;
 }
 
 .method-caption:hover {
@@ -508,6 +505,47 @@ pre.bibtex-container code {
   color: inherit;
   font-size: 0.9em;
   text-align: left;
+}
+
+/* Unified media styling for consistent width across all videos and figures */
+.media-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  display: block;
+}
+
+.media-container video,
+.media-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Apply consistent styling to all video elements */
+video {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Apply consistent styling to content images */
+.content img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Comparison container consistent styling */
+.b-dics {
+  margin: 30px auto !important;
 }
 
 /* References section links styling for better visibility on dark background */
