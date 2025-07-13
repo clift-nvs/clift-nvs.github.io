@@ -41,21 +41,6 @@ body {
   color: #ffffff;
 }
 
-.method-caption {
-  color: #ffffff;
-  background: linear-gradient(135deg, #111111 0%, #000000 100%);
-  border-left: 3px solid #00aaff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-  border: 1px solid #333333;
-}
-
-.tldr-caption {
-  background: linear-gradient(135deg, #111111 0%, #000000 100%);
-  border-left: 4px solid #00aaff;
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-}
-
 .nav-item {
   background-color: #111111;
   border: 1px solid #333333;
@@ -151,7 +136,25 @@ body {
 }
 
 .publication-authors a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+/* Affiliation links styling - make them look like regular text */
+.publication-authors .affiliation-link {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: inherit !important;
+}
+
+.publication-authors .affiliation-link:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: inherit !important;
+}
+
+/* Increase gap between author names and affiliations */
+.publication-authors.affiliations {
+  margin-top: 20px;
 }
 
 .author-block {
@@ -315,7 +318,7 @@ li {
   font-style: normal;
   color: #cccccc;
   font-size: 0.95em;
-  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
   border-left: 3px solid #00aaff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.5);
@@ -344,7 +347,7 @@ li {
   text-align: left;
   margin: 20px 0;
   padding: 20px 28px;
-  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
   border-left: 4px solid #00aaff;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
@@ -487,7 +490,7 @@ li {
 }
 
 pre.bibtex-container {
-  background: linear-gradient(135deg, #111111 0%, #000000 100%);
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
   border: 1px solid #333333;
   border-left: 3px solid #00aaff;
   border-radius: 8px;
