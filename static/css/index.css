@@ -339,6 +339,11 @@ li {
   color: #eeeeee;
   font-weight: 500;
 }
+/* 
+.method-caption a {
+  color: #00aaff !important;
+  text-decoration: underline;
+} */
 
 .tldr-caption {
   text-align: left;

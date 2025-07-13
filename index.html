@@ -195,7 +195,7 @@
         <div style="margin-top: 60px; margin-bottom: 40px;">
           <figure class="media-container">
             <figcaption class="method-caption">
-              We then illustrate the detailed method pipeline. <strong>Training (top):</strong> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <em>Latent K-means</em> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <strong>Inference (bottom):</strong> The multi-view input images are first encoded into CLiFTs by the same process as in training. Then, relevant CLiFTs are collected based on the target viewpoint and compute budget, which are passed to the adaptive renderer to produce the target view.
+              We then illustrate the detailed method pipeline. <strong>Training (top):</strong> Multi-view images are processed through three stages: (1) <em>Multi-view encoder</em> tokenizes input images with camera poses, (2) <a href="#latent-kmeans-vis"><em>Latent K-means</em></a> clusters tokens to select representative centroids, and (3) <em>Neural condensation</em> compresses all token information into the selected centroids to create CLiFTs. <strong>Inference (bottom):</strong> The multi-view input images are first encoded into CLiFTs by the same process as in training. Then, relevant CLiFTs are collected based on the target viewpoint and compute budget, which are passed to the adaptive renderer to produce the target view.
             </figcaption>
             <div class="content has-text-centered">
               <img src="resources/method_dark.png" alt="Method Overview">
@@ -307,6 +307,24 @@
           </video>
         </div>
 
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="latent-kmeans-vis">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Visualization of Latent K-means Clustering</h2>
+        <figcaption class="method-caption">
+          Finally, we visualize the latent K-means clustering results with K=128 for better visualization. Each color represents a cluster, and the yellow ring indicates the centroid token. Note that clustering is performed across multiple views, so a single cluster can span multiple images. As a result, some clusters may not have a visible centroid in a given image.
+        </figcaption>
+        <div class="content has-text-centered">
+          <img src="resources/kmeans_vis.png" alt="K-means clustering visualization" style="margin-top: 20px;">
+        </div>
+      </div>
     </div>
 
   </div>
