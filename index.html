@@ -463,6 +463,8 @@
               if (video.paused) {
                   hasAttemptedPlay = false; // Reset to allow user-initiated play
                   attemptPlay();
+              } else {
+                  video.pause();
               }
           };
           
