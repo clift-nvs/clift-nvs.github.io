@@ -458,24 +458,24 @@
           video.addEventListener('loadedmetadata', attemptPlay);
           video.addEventListener('canplay', attemptPlay);
           
-          // Add click handler directly to each video
-          const videoClickHandler = () => {
-              if (video.paused) {
-                  const playPromise = video.play();
-                  if (playPromise !== undefined) {
-                      playPromise.catch(() => {
-                          // Play was prevented, let's show controls as a fallback.
-                          if (!video.controls) {
-                              video.controls = true;
-                          }
-                      });
-                  }
-              } else {
-                  video.pause();
-              }
-          };
+          // // Add click handler directly to each video
+          // const videoClickHandler = () => {
+          //     if (video.paused) {
+          //         const playPromise = video.play();
+          //         if (playPromise !== undefined) {
+          //             playPromise.catch(() => {
+          //                 // Play was prevented, let's show controls as a fallback.
+          //                 if (!video.controls) {
+          //                     video.controls = true;
+          //                 }
+          //             });
+          //         }
+          //     } else {
+          //         video.pause();
+          //     }
+          // };
           
-          video.addEventListener('click', videoClickHandler);
+          // video.addEventListener('click', videoClickHandler);
           
           // Intersection Observer for lazy loading/playing (only once)
           if ('IntersectionObserver' in window) {
