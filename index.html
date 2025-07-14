@@ -494,31 +494,31 @@
           }
       });
       
-      // Global user interaction handler for strict browsers (like WeChat)
-      const handleFirstUserInteraction = () => {
-          if (!hasUserInteracted) {
-              hasUserInteracted = true;
-              console.log('First user interaction detected, attempting to play paused videos...');
+      // // Global user interaction handler for strict browsers (like WeChat)
+      // const handleFirstUserInteraction = () => {
+      //     if (!hasUserInteracted) {
+      //         hasUserInteracted = true;
+      //         console.log('First user interaction detected, attempting to play paused videos...');
               
-              // Only try to play videos that are actually paused
-              videos.forEach(video => {
-                  if (video.paused && !video.ended) {
-                      video.play().catch(error => {
-                          console.log('Video autoplay still prevented after user interaction, showing controls...', error);
-                          video.controls = true;
-                      });
-                  }
-              });
+      //         // Only try to play videos that are actually paused
+      //         videos.forEach(video => {
+      //             if (video.paused && !video.ended) {
+      //                 video.play().catch(error => {
+      //                     console.log('Video autoplay still prevented after user interaction, showing controls...', error);
+      //                     video.controls = true;
+      //                 });
+      //             }
+      //         });
               
-              // Remove the listeners after first interaction
-              document.removeEventListener('touchstart', handleFirstUserInteraction);
-              document.removeEventListener('click', handleFirstUserInteraction);
-          }
-      };
+      //         // Remove the listeners after first interaction
+      //         document.removeEventListener('touchstart', handleFirstUserInteraction);
+      //         document.removeEventListener('click', handleFirstUserInteraction);
+      //     }
+      // };
       
-      // Add document-wide listeners for first user interaction (for strict browsers)
-      document.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
-      document.addEventListener('click', handleFirstUserInteraction, { once: true });
+      // // Add document-wide listeners for first user interaction (for strict browsers)
+      // document.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
+      // document.addEventListener('click', handleFirstUserInteraction, { once: true });
   }
 
 // Initialize video compatibility on page load
